@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "Send to Downloader",
+  "version": "0.1.0",
+  "description": "Send videos, playlists and links to the Downloader desktop app.",
+  "permissions": ["contextMenus", "storage", "activeTab", "notifications"],
+  "host_permissions": ["http://127.0.0.1/*"],
+  "background": {
+    "service_worker": "background.js",
+    "scripts": ["background.js"]
+  },
+  "action": {
+    "default_title": "Download this page with Downloader",
+    "default_icon": { "32": "icons/icon32.png", "128": "icons/icon128.png" }
+  },
+  "icons": { "32": "icons/icon32.png", "128": "icons/icon128.png" },
+  "options_ui": { "page": "options.html", "open_in_tab": false },
+  "browser_specific_settings": {
+    "gecko": { "id": "send-to-downloader@downloader.app", "strict_min_version": "121.0" }
+  }
+}
