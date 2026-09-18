@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Send to Downloader</title>
+  <style>
+    :root { color-scheme: light dark; font: 14px system-ui, sans-serif; }
+    body { margin: 16px; min-width: 340px; }
+    label { display: block; margin: 12px 0 4px; font-weight: 600; }
+    input, select { width: 100%; box-sizing: border-box; padding: 6px 8px; }
+    .row { display: flex; gap: 8px; margin-top: 16px; }
+    #status { margin-top: 12px; min-height: 1.2em; }
+    .ok { color: #1f9d68; } .err { color: #d64545; }
+    p.hint { opacity: .75; font-size: 12px; }
+  </style>
+</head>
+<body>
+  <p class="hint">In the Downloader app open <b>Settings → Integrations</b>, copy the pairing token and paste it here.</p>
+  <label for="token">Pairing token</label>
+  <input id="token" type="password" autocomplete="off">
+  <label for="port">Port</label>
+  <input id="port" type="number" min="1024" max="65535">
+  <label for="preset">Quick-download quality</label>
+  <select id="preset">
+    <option value="">App default</option>
+    <option value="best">Best quality</option>
+    <option value="1080">1080p</option>
+    <option value="720">720p</option>
+    <option value="audio_mp3">Audio – MP3</option>
+    <option value="audio_m4a">Audio – M4A</option>
+  </select>
+  <div class="row">
+    <button id="save">Save</button>
+    <button id="test">Test connection</button>
+  </div>
+  <div id="status"></div>
+  <script src="options.js"></script>
+</body>
+</html>
