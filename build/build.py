@@ -88,7 +88,8 @@ def checksums(files: list[Path]) -> None:
     for path in files:
         digest = hashlib.sha256(path.read_bytes()).hexdigest()
         lines.append(f"{digest}  {path.name}")
-    (DIST / "SHA256SUMS.txt").write_text("\n".join(lines) + "\n", encoding="utf-8")
+    # LF endings so `sha256sum -c` works (Windows text mode would write CRLF).
+    (DIST / "SHA256SUMS.txt").write_text("\n".join(lines) + "\n", encoding="utf-8", newline="\n")
     print((DIST / "SHA256SUMS.txt").read_text())
 
 
